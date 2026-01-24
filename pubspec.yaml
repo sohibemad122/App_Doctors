@@ -1,0 +1,46 @@
+name: docdoc
+description: "A new Flutter project."
+
+publish_to: "none"
+
+version: 1.0.5+1
+
+environment:
+  sdk: ^3.10.0
+
+dependencies:
+  build_runner: ^2.10.4
+  cupertino_icons: ^1.0.8
+  dio: ^5.9.0
+  easy_localization: ^3.0.8
+  firebase_core: ^4.3.0
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^9.1.1
+  flutter_native_splash: ^2.4.7
+  flutter_screenutil: ^5.9.3
+  flutter_svg: ^2.2.3
+  freezed: ^3.2.3
+  freezed_annotation: ^3.1.0
+  get_it: ^9.2.0
+  intl: ^0.20.2
+  json_annotation: ^4.9.0
+  json_serializable: ^6.11.2
+  pretty_dio_logger: ^1.4.0
+  retrofit: ^4.9.1
+  retrofit_generator: ^10.2.0
+  flutter_secure_storage: ^10.0.0
+  shared_preferences: ^2.5.4
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/images/
+    - assets/svgs/
+  #   - images/a_dot_ham.jpeg
