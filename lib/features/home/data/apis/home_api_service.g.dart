@@ -12,7 +12,7 @@ part of 'home_api_service.dart';
 
 class _HomeApiService implements HomeApiService {
   _HomeApiService(this._dio, {this.baseUrl, this.errorLogger}) {
-    baseUrl ??= 'specialization/index';
+    baseUrl ??= 'https://vcare.integration25.com/api/';
   }
 
   final Dio _dio;

@@ -36,7 +36,7 @@ class Doctors {
   String? gender;
   @JsonKey(name: 'appoint_price')
   int? price;
-  double degree;
+  String? degree;
 
   Doctors({
     this.id,
