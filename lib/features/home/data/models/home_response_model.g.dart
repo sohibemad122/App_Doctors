@@ -17,8 +17,8 @@ HomeResponseModel _$HomeResponseModelFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-// Map<String, dynamic> _$HomeResponseModelToJson(HomeResponseModel instance) =>
-//     <String, dynamic>{'data': instance.specializationsData};
+Map<String, dynamic> _$HomeResponseModelToJson(HomeResponseModel instance) =>
+    <String, dynamic>{'data': instance.specializationsData};
 
 SpecializationsData _$SpecializationsDataFromJson(Map<String, dynamic> json) =>
     SpecializationsData(
@@ -32,13 +32,13 @@ SpecializationsData _$SpecializationsDataFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-// Map<String, dynamic> _$SpecializationsDataToJson(
-//   SpecializationsData instance,
-// ) => <String, dynamic>{
-//   'id': instance.id,
-//   'name': instance.name,
-//   'doctors': instance.doctors,
-// };
+Map<String, dynamic> _$SpecializationsDataToJson(
+  SpecializationsData instance,
+) => <String, dynamic>{
+  'id': instance.id,
+  'name': instance.name,
+  'doctors': instance.doctors,
+};
 
 Doctors _$DoctorsFromJson(Map<String, dynamic> json) => Doctors(
   id: (json['id'] as num?)?.toInt(),
@@ -51,13 +51,13 @@ Doctors _$DoctorsFromJson(Map<String, dynamic> json) => Doctors(
   degree: (json['degree'] as num).toDouble(),
 );
 
-// Map<String, dynamic> _$DoctorsToJson(Doctors instance) => <String, dynamic>{
-//   'id': instance.id,
-//   'name': instance.name,
-//   'email': instance.email,
-//   'phone': instance.phone,
-//   'photo': instance.photo,
-//   'gender': instance.gender,
-//   'appoint_price': instance.price,
-//   'degree': instance.degree,
-// };
+Map<String, dynamic> _$DoctorsToJson(Doctors instance) => <String, dynamic>{
+  'id': instance.id,
+  'name': instance.name,
+  'email': instance.email,
+  'phone': instance.phone,
+  'photo': instance.photo,
+  'gender': instance.gender,
+  'appoint_price': instance.price,
+  'degree': instance.degree,
+};

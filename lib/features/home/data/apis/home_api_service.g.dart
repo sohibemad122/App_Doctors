@@ -12,7 +12,7 @@ part of 'home_api_service.dart';
 
 class _HomeApiService implements HomeApiService {
   _HomeApiService(this._dio, {this.baseUrl, this.errorLogger}) {
-    baseUrl ??= 'https://vcare.integration25.com/api/';
+    baseUrl ??= 'specialization/index';
   }
 
   final Dio _dio;
@@ -22,7 +22,7 @@ class _HomeApiService implements HomeApiService {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<HomeResponseModel> getHomeDate() async {
+  Future<HomeResponseModel> getSpecializations() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};

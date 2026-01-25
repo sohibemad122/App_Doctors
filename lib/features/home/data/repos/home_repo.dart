@@ -9,7 +9,7 @@ class HomeRepo {
 
   Future<ApiResult<HomeResponseModel>> getHomeData() async {
     try {
-      final response = await homeApiService.getHomeDate();
+      final response = await homeApiService.getSpecializations();
       return ApiResult.success(response);
     } catch (e) {
       return ApiResult.failure(ErrorHandler.handle(e));

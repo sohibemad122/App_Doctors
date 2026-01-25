@@ -16,7 +16,7 @@ class HomeResponseModel {
 @JsonSerializable()
 class SpecializationsData {
   int? id;
-  String? name;
+  String? name; 
   @JsonKey(name: 'doctors')
   List<Doctors?>? doctors;
 
