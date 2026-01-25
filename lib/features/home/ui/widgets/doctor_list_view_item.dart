@@ -18,7 +18,7 @@ class DoctorListViewItem extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(12.0),
             child: Image.asset(
-               'assets/images/Doctor1.png',
+              'assets/images/Doctor1.png',
               height: 120.h,
               width: 110.w,
               fit: BoxFit.cover,
@@ -36,11 +36,14 @@ class DoctorListViewItem extends StatelessWidget {
                 ),
                 verticalspace(5),
                 Text(
-                 '${doctors?.degree} - ${doctors?.phone}',
+                  '${doctors?.degree} - ${doctors?.phone}',
                   style: TextStyles.font12GrayMedium,
                 ),
                 verticalspace(5),
-                  Text(doctors?.email ?? 'email@example.com', style: TextStyles.font12GrayMedium),
+                Text(
+                  doctors?.email ?? 'email@example.com',
+                  style: TextStyles.font12GrayMedium,
+                ),
               ],
             ),
           ),
