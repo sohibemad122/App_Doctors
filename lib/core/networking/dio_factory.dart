@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:docdoc/core/helpers/constans.dart';
+import 'package:docdoc/core/helpers/shared_pref_helber.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class DioFactory {
@@ -6,30 +8,30 @@ class DioFactory {
 
   static Dio? dio;
 
- static Dio getDio() {
-  Duration timeout = const Duration(seconds: 30);
-  if (dio == null) {
-    dio = Dio();
-    dio!
-    ..options.connectTimeout = timeout
-    ..options.receiveTimeout = timeout;
-    addDioHeaders();
-    addDiointerceptors();
-    return dio!;
-  }else {
-    return dio!;
+  static Dio getDio() {
+    Duration timeout = const Duration(seconds: 30);
+    if (dio == null) {
+      dio = Dio();
+      dio!
+        ..options.connectTimeout = timeout
+        ..options.receiveTimeout = timeout;
+      addDioHeaders();
+      addDiointerceptors();
+      return dio!;
+    } else {
+      return dio!;
+    }
   }
 
-
- }
-  static void addDioHeaders() {
+  static void addDioHeaders() async {
     dio?.options.headers = {
       'Accept': 'application/json',
+      'Authorization':
+          'Bearer ${await SharedPrefHelper.getString(SharedPreferencesKeys.userToken)}',
     };
   }
 
-
- static void addDiointerceptors() {
+  static void addDiointerceptors() {
     dio?.interceptors.add(
       PrettyDioLogger(
         requestHeader: true,
@@ -38,6 +40,4 @@ class DioFactory {
       ),
     );
   }
-
-
 }

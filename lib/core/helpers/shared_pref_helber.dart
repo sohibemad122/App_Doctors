@@ -13,7 +13,7 @@ class SharedPrefHelper {
     prefs.clear();
   }
 
-  Future<void> saveData(String key, value) async {
+  static saveData(String key, value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     switch (value.runtimeType) {
       case String:
@@ -41,7 +41,7 @@ class SharedPrefHelper {
     return prefs.getBool(key) ?? false;
   }
 
-  Future<String> getString(String key) async {
+  static Future<String> getString(String key) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getString(key) ?? '';
   }

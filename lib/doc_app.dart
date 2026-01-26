@@ -1,3 +1,4 @@
+import 'package:docdoc/core/helpers/constans.dart';
 import 'package:docdoc/core/routing/app_router.dart';
 import 'package:docdoc/core/routing/routes.dart';
 import 'package:docdoc/core/theme/colors.dart';
@@ -21,7 +22,9 @@ class DocApp extends StatelessWidget {
           scaffoldBackgroundColor: Colors.white,
         ),
         debugShowCheckedModeBanner: false,
-        initialRoute: Routes.homeScreen,
+        initialRoute: isLoggedInUser
+            ? Routes.homeScreen
+            : Routes.onBoardingScreen,
         onGenerateRoute: appRouter.generateRoute,
       ),
     );

@@ -1,3 +1,5 @@
+import 'package:docdoc/core/helpers/constans.dart';
+import 'package:docdoc/core/helpers/shared_pref_helber.dart';
 import 'package:docdoc/core/networking/api_result.dart';
 import 'package:docdoc/features/login/data/models/login_requst_body.dart';
 import 'package:docdoc/features/login/data/repos/login_repo.dart';
@@ -22,12 +24,18 @@ class LoginCubit extends Cubit<LoginState> {
       ),
     );
     result.when(
-      success: (loginResponse) {
+      success: (loginResponse) async {
+        await saveUserToken(loginResponse.userDate?.token ?? '');
+
         emit(LoginState.success(loginResponse));
       },
       failure: (error) {
         emit(LoginState.failure(errorMessage: error.failure.message ?? ''));
       },
     );
+  }
+
+  Future saveUserToken(String token) async {
+    await SharedPrefHelper.saveData(SharedPreferencesKeys.userToken, token);
   }
 }
