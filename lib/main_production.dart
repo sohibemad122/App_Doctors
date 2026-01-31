@@ -22,7 +22,7 @@ void main() async {
 }
 
  Future<void> checkIfLoggedInUser() async {
-  String? userToken = await SharedPrefHelper.getString(
+  String? userToken = await SharedPrefHelper.getSecureString(
     SharedPreferencesKeys.userToken,
   );
   if (!userToken.isNullOrEmpty()) {

@@ -1,19 +1,20 @@
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPrefHelper {
   SharedPrefHelper._();
 
-  Future<void> removeData(String key) async {
+  static Future<void> removeData(String key) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.remove(key);
   }
 
-  Future<void> clearAllData() async {
+  static Future<void> clearAllData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.clear();
   }
 
-  static saveData(String key, value) async {
+  static Future<Null> saveData(String key, value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     switch (value.runtimeType) {
       case String:
@@ -54,5 +55,15 @@ class SharedPrefHelper {
   Future<double> getDouble(String key) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getDouble(key) ?? 0.0;
+  }
+
+  static Future<void> setSecureString(String key, String value) async {
+    const flutterSecureStorage = FlutterSecureStorage();
+    await flutterSecureStorage.write(key: key, value: value);
+  }
+
+  static Future<String?> getSecureString(String key) async {
+    const flutterSecureStorage = FlutterSecureStorage();
+    return await flutterSecureStorage.read(key: key) ?? '';
   }
 }

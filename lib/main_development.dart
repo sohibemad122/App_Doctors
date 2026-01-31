@@ -16,8 +16,8 @@ void main() async {
   runApp(DocApp(appRouter: AppRouter()));
 }
 
-checkIfLoggedInUser() async {
-  String? userToken = await SharedPrefHelper.getString(
+Future<void> checkIfLoggedInUser() async {
+  String? userToken = await SharedPrefHelper.getSecureString(
     SharedPreferencesKeys.userToken,
   );
   if (!userToken.isNullOrEmpty()) {
