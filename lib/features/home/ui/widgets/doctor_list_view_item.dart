@@ -1,8 +1,11 @@
 import 'package:docdoc/core/helpers/spacing.dart';
+import 'package:docdoc/core/theme/colors.dart';
 import 'package:docdoc/core/theme/styles.dart';
 import 'package:docdoc/features/home/data/models/home_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:shimmer/shimmer.dart';
 
 class DoctorListViewItem extends StatelessWidget {
   final Doctors? doctors;
@@ -15,15 +18,38 @@ class DoctorListViewItem extends StatelessWidget {
       // decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
       child: Row(
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(12.0),
-            child: Image.asset(
-              'assets/images/Doctor1.png',
-              height: 120.h,
+            CachedNetworkImage(
+            imageUrl:
+                "https://static.wikia.nocookie.net/five-world-war/images/6/64/Hisoka.jpg/revision/latest?cb=20190313114050",
+            progressIndicatorBuilder: (context, url, downloadProgress) {
+              return Shimmer.fromColors(
+                baseColor: ColorsManager.lightegery,
+                highlightColor: Colors.white,
+                child: Container(
+                  width: 110.w,
+                  height: 120.h,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(12.0),
+                    color: Colors.white,
+                  ),
+                ),
+              );
+            },
+            imageBuilder: (context, imageProvider) => Container(
               width: 110.w,
-              fit: BoxFit.cover,
+              height: 120.h,
+              decoration: BoxDecoration(
+                shape: BoxShape.rectangle,
+                borderRadius: BorderRadius.circular(12.0),
+                image: DecorationImage(
+                  image: imageProvider,
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
           ),
+         
           horizontalspace(16),
           Expanded(
             child: Column(
